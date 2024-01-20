@@ -38,7 +38,7 @@ Follow these steps to set up and run the application:
   - Replace your_weather_api_key, your_news_api_key, and your_third_api_key with your actual API keys.
 
 4 Run the application:
-  npm start
+  nodemon app.js
   The application will be accessible at http://localhost:3000.
 
 ## API Usage
