@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1.text-center.mb-4 News
+
+  each article in articles
+    .card.mb-4
+      .card-body
+        h5.card-title #{article.title}
+        p.card-text Author: #{article.author}
+        p.card-text Description: #{article.description}
+        p.card-text URL: #{article.url}
+        p.card-text Published At: #{article.publishedAt}
+        p.card-text Content: #{article.content}

@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    p.text-center.mb-4 Air Quality Index (AQI): The Air Quality Index (AQI) is a numerical scale used to communicate the quality of air in a specific location. It provides a standardized way to convey how clean or polluted the air currently is and what associated health effects might be of concern for the general population. AQI values typically range from 0 to 500, with higher values indicating poorer air quality and a higher potential for adverse health effects.
+
+    h2.text-center.mb-4 !Air Quality!
+
+    h4.text-center.mb-4 Overall AQI: #{overall_aqi}
+    h4.text.mb-4 In overall: #{aqiLevel}
+
+
+    each pollutant, index in pollutants
+        .card.mb-4
+            .card-body
+                h5.card-title #{index}
+                p.card-text Chemical formula: #{pollutant.name}
+                p.card-text Concentration: #{pollutant.concentration}
+                p.card-text AQI: #{pollutant.aqi}
