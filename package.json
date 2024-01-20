@@ -1,7 +1,7 @@
 {
-  "name": "practice_3",
+  "name": "assignment2",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web application that provides real-time weather information, latest news, and air quality data for a specified city.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +21,6 @@
     "pug": "^3.0.2",
     "querystring": "^0.2.1",
     "request": "^2.88.2"
-  }
+  },
+  "devDependencies": {}
 }
