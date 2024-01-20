@@ -27,7 +27,7 @@ Follow these steps to set up and run the application:
 1. Clone this repository
    
 2. Install dependencies:
-  - cd weather-news-dashboard
+  - cd assignment2
   - npm install
 
 3. Create environment variables:
