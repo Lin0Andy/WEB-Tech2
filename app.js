@@ -36,7 +36,9 @@ app.get('/third', (req, res) => {
 });
 
 app.post('/third', function(req, res){
-    let city = 'london';
+    const city = req.body.city;
+
+
     request.get({
         url: 'https://api.api-ninjas.com/v1/airquality?city=' + city,
         headers: {
@@ -72,18 +74,6 @@ app.post('/third', function(req, res){
         }
     });
 });
-
-function getAqiLevel(aqi) {
-    if (aqi >= 0 && aqi <= 50) return 'Good';
-    else if (aqi >= 51 && aqi <= 100) return 'Moderate';
-    else if (aqi >= 101 && aqi <= 150) return 'Unhealthy for Sensitive Groups';
-    else if (aqi >= 151 && aqi <= 200) return 'Unhealthy';
-    else if (aqi >= 201 && aqi <= 300) return 'Very Unhealthy';
-    else if (aqi >= 301 && aqi <= 500) return 'Hazardous';
-    else return 'Unknown';
-}
-
-
 
 app.post('/news', function(req, res){
     const sort = req.body.sorting
@@ -124,13 +114,10 @@ app.post('/news', function(req, res){
                     }
 
                     res.render('news', { articles, url });
-
                 } else if (newsData.status === "error") {
                     res.render('error', { url });
-
                 } else {
                     res.render('noarticles', { url });
-
                 }
             } catch (error) {
                 console.error('Error parsing JSON:', error);
@@ -220,6 +207,18 @@ app.post('/weather',  function(req, res){
         })
     })
 })
+
+
+function getAqiLevel(aqi) {
+    if (aqi >= 0 && aqi <= 50) return 'Good';
+    else if (aqi >= 51 && aqi <= 100) return 'Moderate';
+    else if (aqi >= 101 && aqi <= 150) return 'Unhealthy for Sensitive Groups';
+    else if (aqi >= 151 && aqi <= 200) return 'Unhealthy';
+    else if (aqi >= 201 && aqi <= 300) return 'Very Unhealthy';
+    else if (aqi >= 301 && aqi <= 500) return 'Hazardous';
+    else return 'Unknown';
+}
+
 
 app.use((req, res) => {
     res.status(404).send('404: Page not found');
